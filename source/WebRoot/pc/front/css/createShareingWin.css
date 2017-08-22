@@ -1,0 +1,241 @@
+#createShareingWin *{
+	color:white;
+	font-weight: normal;
+	outline: none;
+}
+#createShareingWin{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	text-align: center;
+	background: rgba(0,0,0,0.9);
+	/* //默认不显示 */
+	display: none;
+	z-index:500;
+}
+
+#createShareingWin>#shareingShower{
+	width:520px;
+	height:320px;
+	color: white;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background: white;
+	border: 1px solid gray;
+	border-radius:5px;
+	/* background: red; */
+}
+
+/* 题目：分享 */
+#createShareingWinTitle{
+	height:45px;
+	background: rgb(247,250,255);
+	border: 0px solid rgb(187,212,239);
+	border-bottom: 1px solid rgb(187,212,239);
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	text-align: left;
+	color: rgb(66,78,103);
+	font-size:15px;
+	font-weight:normal;
+	line-height: 45px;
+	padding-left:10px;
+	width:calc(100% - 10px);
+}
+/* 展示div */
+#createShareingWin #infoDisplayDiv{
+	height: 220px;
+	width:100%;
+	position: relative;
+	top:0px;
+	left:0px;
+}
+#createShareingWin #infoDisplayDiv>div{
+	height: 220px;
+	width:100%;
+	float: left;
+	position: absolute;
+	top:0px;
+	left:0px;
+}
+/* 选择分享的文件连接类型的div */
+#chooseSharedLinkTypeDiv{
+	display: none;
+}
+#createShareingWin *{
+	font-size: 14px;
+	color: gray;
+	
+}
+/* 提示，介绍*/
+#shareingIntroDiv{
+	height:70px;
+	width:100%;
+	font-size: 13px;
+	color: gray;
+	line-height: 70px;
+	text-align: center;
+}
+/* 分享按钮的div */
+#shareingBtnsDiv{
+	height:150px;
+	width:100%;
+}
+#shareingBtnsDiv>div{
+	height:75px;
+	padding-left: 15px;
+	width:calc(100% - 15px);
+	line-height:70px;
+	text-align: left;; 
+}
+/* 分享按钮 */
+#createShareingWin #shareingBtnsDiv input{
+	
+	border: 1px solid rgb(192,217,255);
+	width:100px;
+	height:35px;
+	border-radius:3px; 
+	color: white;
+	cursor: pointer;
+	background: rgb(59,140,255);
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#createShareingWin #shareingBtnsDiv input:hover{
+	color:rgb(59,140,255);
+	background: white;
+	
+	
+}
+/* 操作按钮div */
+#createShareingWin #operBtnsDiv{
+	width:calc(100% - 20px);
+	margin: 10px 10px;
+	height:55px;
+	line-height: 55px;
+	
+}
+#createShareingWin #operBtnsDiv>input{
+	border: 1px solid rgb(192,217,255);
+	width:100px;
+	height:35px;
+	border-radius:3px; 
+	color: rgb(59,140,255);
+	cursor: pointer;
+	
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#createShareingWin #operBtnsDiv>input:hover{
+	color:white;
+	background: rgb(59,140,255);
+	
+	
+}
+
+#createShareingWin #cancelShareingBtn{
+	float: right;
+}
+/* 创建分享私密连接结果显示 */
+#privateLinkDiv{
+	display: none;
+}
+#privateLinkDiv * {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#privateLinkDiv>div{
+	height:55px;
+	width:calc(100% - 40px);
+	text-align: left;
+	line-height: 55px;
+	padding: 0px 20px;
+}
+/* 显示url */
+#privateLinkUrl{
+	height:35px;
+	width:300px;
+	border: 1px solid rgb(233,233,233);
+	border-radius:2px;	
+}
+/* copy按钮 */
+#privateLinkUrlCopyBtn{
+	border-radius:2px;	
+	border: 1px solid rgb(119,175,255);
+	height:35px;
+	width:130px;
+	background: rgb(59,140,255);
+	color: white;
+	cursor: pointer;
+	
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#privateLinkUrlCopyBtn:hover{
+	background: white;
+	color: rgb(59,140,255);
+}
+
+/* 提取密码框 */
+#privateLinkUrlPwd{
+	height:35px;
+	width:80px;
+	border: 1px solid rgb(233,233,233);
+	border-radius:2px;	
+}
+/* 创建分享公共连接结果显示 */
+#publicLinkDiv{
+	display: none;
+}
+#publicLinkDiv{
+	display: none;
+}
+#publicLinkDiv * {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#publicLinkDiv>div{
+	height:76px;
+	width:calc(100% - 40px);
+	text-align: left;
+	line-height: 55px;
+	padding: 0px 20px;
+}
+/* 显示url */
+#publicLinkUrl{
+	height:35px;
+	width:300px;
+	border: 1px solid rgb(233,233,233);
+	border-radius:2px;	
+}
+/* copy按钮 */
+#publicLinkUrlCopyBtn{
+	border-radius:2px;	
+	border: 1px solid rgb(119,175,255);
+	height:35px;
+	width:130px;
+	background: rgb(59,140,255);
+	color: white;
+	cursor: pointer;
+}
+#publicLinkUrlCopyBtn:hover{
+	background: white;
+	color: rgb(59,140,255);
+}
+
+
+

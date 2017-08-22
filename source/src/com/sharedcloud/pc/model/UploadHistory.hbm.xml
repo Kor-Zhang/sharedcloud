@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sharedcloud.pc.model.UploadHistory" table="UPLOAD_HISTORY" schema="SHAREDCLOUD">
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="uploadhistory" class="com.sharedcloud.pc.model.UploadHistory" fetch="select">
+            <column name="PID" length="36" />
+        </many-to-one>
+        <many-to-one name="files" class="com.sharedcloud.pc.model.Files" fetch="select">
+            <column name="FILEID" length="36" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="com.sharedcloud.pc.model.Users" fetch="select">
+            <column name="USERID" length="36" not-null="true" />
+        </many-to-one>
+        <property name="uploadtime" type="java.sql.Timestamp">
+            <column name="UPLOADTIME" length="11" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="STATUS" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="filename" type="java.lang.String">
+            <column name="FILENAME" length="100" not-null="true" />
+        </property>
+        <set name="childs" inverse="true">
+            <key>
+                <column name="PID" length="36" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.UploadHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

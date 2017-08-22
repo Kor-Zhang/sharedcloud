@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sharedcloud.pc.model.UploadHistoryMagLog" table="UPLOADHISTORY_MAG_LOG" schema="SHAREDCLOUD">
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="uploadHistory" class="com.sharedcloud.pc.model.UploadHistory" fetch="select">
+            <column name="UPLOAD_HISTORY_ID" length="36" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adm" class="com.sharedcloud.pc.model.Adm" fetch="select">
+            <column name="ADMID" length="36" not-null="true" />
+        </many-to-one>
+        <property name="operation" type="java.lang.String">
+            <column name="OPERATION" length="10" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="STATUS" precision="2" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

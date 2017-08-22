@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<!--================================- struts配置属性：start -================================-->
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<constant name="struts.locale" value="zh_CN"></constant>
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<constant name="struts.locale" value="utf-8"></constant>
+	<constant name="struts.xslt.nocache" value="true"></constant>
+	<!-- 上传文件暂存目录 -->
+	<constant name="struts.multipart.saveDir" value="f:\sharedcloud\src\struts.multipart.saveDir"></constant>
+	<!-- 最大上传限制为1g -->
+	<constant name="struts.multipart.maxSize" value="1073241024"></constant>
+	<!--================================- struts配置属性：end -================================-->
+
+	<!--================================- 配置全局基础包；以及包内的全局基础interceptors等：start -================================-->
+	<package name="pcPackage" namespace="/pc" extends="struts-default">
+
+		<!--****************************** interceptors：start ******************************-->
+		<interceptors>
+			<!-- 字符集拦截器 -->
+			<interceptor name="encodingInterceptor"
+				class="com.sharedcloud.pc.interceptor.EncodingInterceptor" />
+
+			<!-- 配置栈 -->
+			<interceptor-stack name="baseInterceptorStack">
+				<!--配置内建默认拦截器 -->
+				<interceptor-ref name="defaultStack" />
+				<!--配置自定义拦截器 -->
+				<!-- 编码拦截器 -->
+				<interceptor-ref name="encodingInterceptor"></interceptor-ref>
+
+
+			</interceptor-stack>
+		</interceptors>
+		<!-- 全局拦截栈 -->
+		
+		<default-interceptor-ref name="baseInterceptorStack"></default-interceptor-ref>
+		<!--****************************** interceptors：end ******************************-->
+		
+		
+		<!--****************************** 全局的action：start ******************************-->
+		<action name="baseAction" class="com.sharedcloud.pc.action.BaseAction">
+
+		</action>
+		
+		<action name="verifyAction" class="com.sharedcloud.pc.action.VerifyAction">
+
+		</action>
+		<!--****************************** 全局的action：end ******************************-->
+	</package>
+	<!--================================- 配置全局基础包；以及包内的全局基础interceptors等:end -================================-->
+	
+	
+	<!--================================- 引入其他struts配置文件：start -================================-->
+	<include file="conf/pc/struts-front.xml"></include>
+	<include file="conf/pc/struts-back.xml"></include>
+	<!--================================- 引入其他struts配置文件：end -================================-->
+</struts>

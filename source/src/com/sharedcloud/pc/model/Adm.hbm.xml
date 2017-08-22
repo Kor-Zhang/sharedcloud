@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.sharedcloud.pc.model.Adm" table="ADM" schema="SHAREDCLOUD">
+		<id name="admid" type="java.lang.String">
+			<column name="ADMID" length="36" />
+			<generator class="assigned" />
+		</id>
+		<property name="email" type="java.lang.String">
+			<column name="EMAIL" length="30" not-null="true" unique="true" />
+		</property>
+		<property name="password" type="java.lang.String">
+			<column name="PASSWORD" length="32" not-null="true" />
+		</property>
+		<property name="status" type="java.lang.Byte">
+			<column name="STATUS" precision="2" scale="0" not-null="true" />
+		</property>
+		<set name="usersMagLogs" inverse="true">
+			<key>
+				<column name="ADMID" length="36" not-null="true" />
+			</key>
+			<one-to-many class="com.sharedcloud.pc.model.UsersMagLog" />
+		</set>
+		<set name="sharedfilesMagLogs" inverse="true">
+			<key>
+				<column name="ADMID" length="36" not-null="true" />
+			</key>
+			<one-to-many class="com.sharedcloud.pc.model.SharedfilesMagLog" />
+		</set>
+		<set name="filesMagLogs" inverse="true">
+			<key>
+				<column name="ADMID" length="36" not-null="true" />
+			</key>
+			<one-to-many class="com.sharedcloud.pc.model.FilesMagLog" />
+		</set>
+	</class>
+</hibernate-mapping>

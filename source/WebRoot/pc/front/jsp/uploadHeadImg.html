@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="screen">
+  /* html, body { height:100%; background-color: #ffffff;} */
+  #flashContent { width:100%; height:100%; }
+  </style>
+
+<script type="text/javascript">
+	function uploadevent(status, picUrl, callbackdata) {
+		
+		status += '';
+		switch (status) {
+		case '1':
+			/* alert(picUrl); //后端存储图片
+			alert(callbackdata);
+			window.location.reload();
+			alert(status); */
+			//刷行头像
+			userSelfInfo_head_img.attr('src',userSelfInfo_head_img.attr('src')+"&"+new Date().getTime());
+			break;
+		case '-1':
+			/* window.location.reload(); */
+			break;
+		default:
+			/* window.location.reload(); */
+		}
+	}
+</script>
+</head>
+ <body>
+  <div id="altContent">
+
+
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+WIDTH="650" HEIGHT="450" id="myMovieName">
+<PARAM NAME=movie VALUE="../../plug-in/headImgUpload/avatar.swf">
+<PARAM NAME=quality VALUE=high>
+<PARAM NAME=bgcolor VALUE=#FFFFFF>
+<param name="flashvars" value="imgUrl=.../../plug-in/headImgUpload/default.jpg&uploadUrl=handlerUploadHeadImg.jsp&uploadSrc=true"/>
+<EMBED src="../../plug-in/headImgUpload/avatar.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl=../../plug-in/headImgUpload/default.jpg&uploadUrl=handlerUploadHeadImg.jsp&uploadSrc=true"
+NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always"
+PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+</EMBED>
+</OBJECT>
+ 
+
+  </div>
+
+  <div id="avatar_priview"></div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sharedcloud.pc.model.Sharedfiles" table="SHAREDFILES" schema="SHAREDCLOUD">
+        <id name="sharedfileid" type="java.lang.String">
+            <column name="SHAREDFILEID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="uploadHistory" class="com.sharedcloud.pc.model.UploadHistory" fetch="select">
+            <column name="UPLOADHISTORYID" length="36" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="com.sharedcloud.pc.model.Users" fetch="select">
+            <column name="USERID" length="36" not-null="true" />
+        </many-to-one>
+        <property name="ispublic" type="java.lang.Boolean">
+            <column name="ISPUBLIC" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="10" />
+        </property>
+        <property name="sharedtime" type="java.sql.Timestamp">
+            <column name="SHAREDTIME" length="11" not-null="true" />
+        </property>
+        <property name="downloadnumber" type="java.lang.Double">
+            <column name="DOWNLOADNUMBER" precision="63" scale="0" not-null="true" />
+        </property>
+        <property name="browsenumber" type="java.lang.Double">
+            <column name="BROWSENUMBER" precision="63" scale="0" not-null="true" />
+        </property>
+        <property name="savenumber" type="java.lang.Double">
+            <column name="SAVENUMBER" precision="63" scale="0" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="STATUS" precision="2" scale="0" not-null="true" />
+        </property>
+        <set name="sharedfilesMagLogs" inverse="true">
+            <key>
+                <column name="SHAREDFILEID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.SharedfilesMagLog" />
+        </set>
+    </class>
+</hibernate-mapping>

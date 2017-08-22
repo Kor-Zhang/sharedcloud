@@ -1,0 +1,200 @@
+/* index界面的嵌入页面"myShredFilesList.jsp"的css */
+
+#mySharedFilesListView{
+	
+}
+#mySharedFilesListView>div{
+}
+/******** 上部导航操作栏  ********/
+#mySharedFilesOperNav{
+	width:100%;
+	height:70px;
+}
+#mySharedFilesOperNav>div{
+	float: left;
+	width:50%;
+	line-height: 70px;
+	height:100%;
+	text-align: left;
+}
+/* 操作按钮div */
+#operBtnNavDiv{
+}
+
+#operBtnNavDiv>button{
+	
+	/* 隐藏 */
+	display: none;
+	background:rgb(59,140,255);
+	border-radius:4px;
+	/* width:65px; */
+	height:35px;
+	line-height:35px;
+	border:1px solid rgb(192,217,244);
+	color: white;
+	text-align: center;
+	margin-left:10px;
+	padding:0px 10px;
+	cursor:pointer;
+	outline: none;
+	
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+	
+	
+	
+	/* 防止被选中 */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+#operBtnNavDiv>button i{
+	color: white;
+}
+#operBtnNavDiv>button:hover{
+	color:rgb(59,140,255);
+	background:white;
+}
+#operBtnNavDiv>button:hover i{
+	color:rgb(59,140,255);
+}
+/* 操作提示div*/
+#mySharedTiperDiv{
+	width:50%;
+	line-height: 70px;
+	height:70px;
+	/* 隐藏 */
+	display: none;
+}
+#mySharedTiperDiv>*{
+	float: left;
+	
+}
+#mySharedTiperDiv>div{
+	line-height: 70px;
+	height:70px;
+	font-size: 14px;
+	color: rgb(40,140,255);
+	font-weight:bold;
+}
+#mySharedTiperDiv>img{
+	line-height:70px;
+	height:30px;
+	margin-top: 20px;
+}
+
+
+/******** 设置table ********/
+#mySharedFilesListTableDiv{
+	
+	padding: 0px 20px;
+	width:calc(100% - 40px);
+	height:600px;
+	overflow-y: scroll;
+}
+
+#mySharedFilesListTable{
+	width:100%;
+	background: white;
+	border:0; 
+	cellspacing:0; 
+	cellpadding:0;
+}
+/* 设置table的子元素 */
+#mySharedFilesListTable *{
+	
+	text-align:left;
+	background: white;
+	font-weight: normal;
+	font-size: 14px;
+	background:transparent;
+	
+	/* 过长内容处理 */
+	 overflow:hidden;
+	 text-overflow:ellipsis;
+	 white-space:nowrap; 
+	
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	-khtml-user-select:none;
+	user-select:none;
+
+}
+/* 设置td */
+/* table的列需要line-height设置高度 */
+#mySharedFilesListTable td{
+	height:40px;
+	line-height:40px;
+	/* width:25%; */
+	border-bottom: 1px solid rgb(242,246,253);
+	cursor: pointer;
+	overflow: hidden;
+}
+#mySharedFilesListTable td:FIRST-CHILD{
+	/* width: 100px; */
+}
+/* 设置tr */
+#mySharedFilesListTable tr{
+	/* 渐变背景,字体颜色 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#mySharedFilesListTable tr:hover{
+	background:rgb(241,242,243);
+}
+
+/******** 设置tr 内部********/
+/* 文件图标和名字的td */
+.sharedFilesTds{
+	
+}
+.sharedFilesTds>div{
+	float:left;
+	
+}
+
+/* 文件夹图标 div*/
+.sharedFilesIconDiv{
+	width:30px;
+}
+/* 文件夹图标 */
+.sharedFilesIcon{
+	width:22px;
+}
+
+/* 文件夹名字 div*/
+.sharedFilesNameDiv{
+	height:40px;
+	line-height:40px;
+	width:calc(100% - 130px);
+	/* margin-left:20px; */
+}
+.sharedFilesNameDiv>label{
+	border:0px solid rgb(40,140,255);
+	width:100%;
+	height:20px;
+	-moz-user-select:auto;
+	-webkit-user-select:auto;
+	-ms-user-select:auto;
+	-khtml-user-select:auto;
+	user-select:auto;
+}
+.sharedFilesNameDiv>label{
+	cursor: pointer;
+}
+.sharedFilesNameDiv>a:hover{
+	color:rgb(59,140,255);;
+}
+/*  文件夹操作div 
+.directoryOperation_div{
+	width:100px;
+	float: right;
+} */

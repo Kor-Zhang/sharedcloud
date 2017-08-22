@@ -1,0 +1,151 @@
+#fileCopyMoveWin *{
+	color:white;
+}
+#fileCopyMoveWin{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	text-align: center;
+	background: rgba(0,0,0,0.9);
+	/* //默认不显示 */
+	display: none;
+	z-index:500;
+}
+
+#fileCopyMoveWin>#fileCopyMoveShower{
+	width:520px;
+	height:320px;
+	color: white;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background: white;
+	border: 1px solid gray;
+	border-radius:5px;
+	/* background: red; */
+}
+
+/* 题目：移动，复制 */
+#fileCopyMoveWin #fileCopyMoveWinTitle{
+	height:45px;
+	background: rgb(247,250,255);
+	border: 0px solid rgb(187,212,239);
+	border-bottom: 1px solid rgb(187,212,239);
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	text-align: left;
+	color: rgb(66,78,103);
+	font-size:15px;
+	font-weight:normal;
+	line-height: 45px;
+	padding-left:10px;
+	width:calc(100% - 10px);
+}
+
+/* 操作按钮div */
+#fileCopyMoveWin #operBtnsDiv{
+	width:calc(100% - 20px);
+	margin: 0px 10px;
+	height:55px;
+	line-height: 55px;
+}
+#fileCopyMoveWin #operBtnsDiv>input{
+	border: 1px solid rgb(192,217,255);
+	width:100px;
+	height:35px;
+	border-radius:3px; 
+	color: rgb(59,140,255);
+	cursor: pointer;
+	
+	
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#fileCopyMoveWin #operBtnsDiv>input:hover{
+	color:white;
+	background: rgb(59,140,255);
+	
+	
+}
+#fileCopyMoveWin #newDirectoryBtn{
+	float: left;
+	display: none;
+}
+#fileCopyMoveWin #cancelCopyMoveBtn{
+	float: right;
+	margin-right: 10px;
+}
+#fileCopyMoveWin #confirmCopyMoveBtn{
+	float: right;
+}
+
+/* 文件夹列表显示div */
+#fileCopyMoveWin #directoryListDiv{
+	height:calc(100% - 45px - 55px - 20px);
+	width:calc(100% - 20px);
+	margin: 10px 10px;
+	border: 1px solid rgb(192,217,255);
+	overflow: scroll;
+}
+/* 文件夹树 */
+
+#fileCopyMoveWin #directoryTree{
+	text-align:left;
+	list-style: none;
+}
+#fileCopyMoveWin #directoryTree *{
+	font-size:13px;
+	font-weight:normal;
+	color:black;
+}
+/* 文件夹节点 */
+#fileCopyMoveWin .treeNodes{
+	cursor:pointer;
+	line-height:35px;
+	height:35px;
+	border: 1px solid white;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+#fileCopyMoveWin .treeNodeDirectoryIcon{
+	width:15px;
+	height:15px;
+	line-height: 15px;
+}
+/* 被选择的节点样式 */
+#fileCopyMoveWin .selectedTreeNode{
+	background-color:rgb(229,240,251);
+	border: 1px solid rgb(187,212,255);
+}
+#fileCopyMoveWin .childIcons{
+	padding-left:20px;
+}
+/* 打开的图标样式 */
+#fileCopyMoveWin .closedTreeNode{
+	background-image: url("../img/icon/closeTreeNode.jpg");
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:20px;
+}
+/* 打开的图标样式 */
+#fileCopyMoveWin .opendTreeNode{
+	background-image: url("../img/icon/openTreeNode.jpg");
+	background-position: left;
+	padding-left:20px;
+	background-repeat:no-repeat;
+}
+/* 节点加载的图标样式 */
+#fileCopyMoveWin .loadingTreeNode{
+	background-image: url("../img/icon/loading.gif");
+	background-position: left;
+	padding-left:20px;
+	background-repeat:no-repeat;
+}

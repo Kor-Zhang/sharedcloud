@@ -1,0 +1,73 @@
+#confirmWin *{
+	color:white;
+}
+#confirmWin{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	text-align: center;
+	background: rgba(0,0,0,0.9);
+	/* //默认不显示 */
+	display: none;
+	z-index:999;
+}
+/* #confirmWin #confirmWin_close{
+	cursor:pointer;
+	float: right;
+	font-size: 50px;
+	width:50px;
+	height:50px;
+	margin-right: 20px;
+}
+ */
+#confirmWin>#confirmShower{
+	width:400px;
+	height:100px;
+	color: white;
+	position:absolute;
+	top:0px;
+	left:0px;
+	/* background: red; */
+}
+
+#confirmShower_content{
+	border-bottom: 1px solid white;
+	padding-bottom:15px;
+	margin-bottom: 15px;
+	font-size: 22px;
+	width:100%;
+}
+/* 设置按钮样式 */
+#confirmBtns_div{
+	width:100%;
+}
+#confirmWinBtn,#cancelWinBtn{
+	outline:none;
+	background:transparent;
+	border-radius:5px;
+	width:85px;
+	height:40px;
+	border:1px solid white;
+	color: white;
+	margin: 0px 10px;
+	cursor: pointer;
+	font-size: 15px;
+	/* 
+	text-align: center; */
+	/* display: none; */
+	
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#confirmWinBtn:hover,#cancelWinBtn:hover{
+	background-color:white;
+	border-color:black;
+	color:black;
+	
+	
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+
+	<!--================================- 前台包：start：start -================================-->
+	<package name="pc_frontPackage" namespace="/pc/front" extends="pcPackage">
+	
+		
+	
+		<!--****************************** interceptors ******************************-->
+		<interceptors>
+			<!-- 检测session中用户的状态的拦截器 -->
+			<interceptor name="checkSessionUserStatusInterceptor"
+				class="com.sharedcloud.pc.front.interceptor.CheckSessionUserStatusInterceptor" />
+			<!-- 配置栈 -->
+			<interceptor-stack name="frontInterceptorStack">
+				<!-- 编码拦截器 -->
+				<interceptor-ref name="baseInterceptorStack"></interceptor-ref>
+
+				<!-- 自定义拦截器 -->
+				<interceptor-ref name="checkSessionUserStatusInterceptor">
+					<!-- 不需要拦截的方法 -->
+					<param name="excludeMethods">
+						uploadFiles,userRegist,userLogin,loginByCookie,checkActivityCode,verifyUpdateUserPwdUrl,updateUserPwd,checkLoginEmail,checkLoginVerifyCode,checkRegistVerifyCode,checkRegistEmail,checkRegistUserName,checkLoginPwd,checkRegistPwd
+					</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 设置前台全局拦截栈 -->
+		<default-interceptor-ref name="frontInterceptorStack"></default-interceptor-ref>
+		<!--****************************** interceptors：end ******************************-->
+		
+		
+		
+		
+		
+		<!--****************************** 全局的results：start ******************************-->
+		<global-results>
+			<result name="redirectIndex" type="redirect">/pc/front/jsp/index.jsp</result>
+			<result name="index">/pc/front/jsp/index.jsp</result>
+			<result name="info">/pc/front/jsp/info.jsp</result>
+			<result name="login">/pc/front/jsp/login.jsp</result>
+			<result name="sharedFiles">/pc/front/jsp/sharedFiles.jsp</result>
+			<result name="resetPassword">/pc/front/jsp/resetPassword.jsp</result>
+		</global-results>
+		<!--****************************** 全局的results：end ******************************-->
+		
+		
+		
+		
+		
+		<!--****************************** 前台基础action：start ******************************-->
+		<action name="fBaseAction" class="com.sharedcloud.pc.front.action.FBaseAction">
+		</action>
+		<!--****************************** 前台基础action：end ******************************-->
+		
+		
+		
+		
+		
+		
+		
+		<!--****************************** 前台其他action：start ******************************-->
+		<!-- fUsersAction -->
+		<action name="fUsersAction" class="com.sharedcloud.pc.front.action.FUsersAction">
+		</action>
+		<!-- fUploadHistoryAction -->
+		<action name="fUploadHistoryAction"
+			class="com.sharedcloud.pc.front.action.FUploadHistoryAction">
+		</action>
+		<!-- fSharedfilesAction -->
+		<action name="fSharedfilesAction" class="com.sharedcloud.pc.front.action.FSharedfilesAction">
+		</action>
+		<!--****************************** 前台其他action：end ******************************-->
+		
+		
+		
+		
+		
+		
+	</package>
+	<!--================================- 前台包：end -================================-->
+</struts>

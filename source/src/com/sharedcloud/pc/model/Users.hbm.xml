@@ -1,0 +1,85 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sharedcloud.pc.model.Users" table="USERS" schema="SHAREDCLOUD">
+        <id name="userid" type="java.lang.String">
+            <column name="USERID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" length="30" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="32" not-null="true" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="birthday" type="java.sql.Timestamp">
+            <column name="BIRTHDAY" length="7" not-null="true" />
+        </property>
+        <property name="age" type="java.lang.Short">
+            <column name="AGE" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" length="10" not-null="true" />
+        </property> 
+        <property name="intro" type="java.lang.String">
+            <column name="INTRO" length="255"/>
+        </property>
+        <!-- <property name="headimgpath" type="java.lang.String">
+            <column name="HEADIMGPATH" length="50" />
+        </property> -->
+        <property name="savedfilesize" type="java.lang.Double">
+            <column name="SAVEDFILESIZE" precision="63" scale="0" not-null="true" />
+        </property>
+        <property name="totalfilesize" type="java.lang.Double">
+            <column name="TOTALFILESIZE" precision="63" scale="0" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="STATUS" precision="2" scale="0" not-null="true" />
+        </property>
+         <property name="headimgpath" type="java.lang.String">
+            <column name="HEADIMGPATH"  length="50" />
+        </property>
+        <property name="updatepwdreqsubmittime" type="java.sql.Timestamp">
+            <column name="UPDATEPWDREQSUBMITTIME" length="6"/>
+        </property>
+        <property name="updatepwdverifycode" type="java.lang.String">
+            <column name="UPDATEPWDVERIFYCODE" length="36"/>
+        </property>
+        <property name="registtime" type="java.sql.Timestamp">
+            <column name="REGISTTIME" length="6" not-null="true" />
+        </property>
+        <property name="activitytime" type="java.sql.Timestamp">
+            <column name="ACTIVITYTIME" length="6" not-null="true" />
+        </property>
+        <property name="activitycode" type="java.lang.String">
+            <column name="ACTIVITYCODE" length="36" not-null="true" />
+        </property>
+        <set name="uploadHistories" inverse="true">
+            <key>
+                <column name="USERID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.UploadHistory" />
+        </set>
+        <set name="usersMagLogs" inverse="true">
+            <key>
+                <column name="USERID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.UsersMagLog" />
+        </set>
+        <set name="sharedfileses" inverse="true">
+            <key>
+                <column name="USERID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.Sharedfiles" />
+        </set>
+        <set name="downloadHistories" inverse="true">
+            <key>
+                <column name="USERID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.DownloadHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

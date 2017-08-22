@@ -1,0 +1,53 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sharedcloud.pc.model.Files" table="FILES" schema="SHAREDCLOUD">
+        <id name="fileid" type="java.lang.String">
+            <column name="FILEID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="filesize" type="java.lang.Double">
+            <column name="FILESIZE" precision="63" scale="0" not-null="true"/>
+        </property>
+        <property name="filepath" type="java.lang.String">
+            <column name="FILEPATH" length="100" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="STATUS" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="isdir" type="java.lang.Byte">
+            <column name="ISDIR" precision="2" scale="0" not-null="true" />
+        </property>
+        <set name="filesMagLogs" inverse="true">
+            <key>
+                <column name="FILEID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.FilesMagLog" />
+        </set>
+        <!-- <set name="fileses" inverse="true">
+            <key>
+                <column name="PID" length="36" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.Files" />
+        </set> -->
+        <set name="sharedfileses" inverse="true">
+            <key>
+                <column name="FILEID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.Sharedfiles" />
+        </set>
+        <set name="downloadHistories" inverse="true">
+            <key>
+                <column name="FILEID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.DownloadHistory" />
+        </set>
+        <set name="uploadHistories" inverse="true">
+            <key>
+                <column name="FILEID" length="36" not-null="true" />
+            </key>
+            <one-to-many class="com.sharedcloud.pc.model.UploadHistory" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

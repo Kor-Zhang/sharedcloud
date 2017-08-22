@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+">
+
+	<!--================================- 全局dao配置：start -================================-->
+	<bean id="baseDao" class="com.sharedcloud.pc.dao.basedao.impl.BaseDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<!--================================- 全局dao配置：end -================================-->
+	
+	
+	
+	
+	
+	
+	<!--================================- 前台的dao：start -================================-->
+	<bean id="fUsersDao" class="com.sharedcloud.pc.front.dao.impl.FUsersDao" parent="baseDao">
+	</bean>	
+	<!-- fFilesDao -->
+	<bean id="fFilesDao" class="com.sharedcloud.pc.front.dao.impl.FFilesDao" parent="baseDao">
+	</bean>	
+	<!-- fUploadHistoryDao -->
+	<bean id="fUploadHistoryDao" class="com.sharedcloud.pc.front.dao.impl.FUploadHistoryDao" parent="baseDao">
+	</bean>	
+	<!-- fSharedfilesDao -->
+	<bean id="fSharedfilesDao" class="com.sharedcloud.pc.front.dao.impl.FSharedfilesDao" parent="baseDao">
+	</bean>	
+	<!--================================- 前台的dao：end -================================-->
+	
+	
+	
+	
+	
+	
+	<!--================================- 后台的dao：start -================================-->
+	<!--================================- 后台的dao：end -================================-->
+</beans>

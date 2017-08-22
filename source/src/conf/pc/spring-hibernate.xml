@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+">
+	
+	<!--================================- 数据库相关配置：start -================================-->
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 驱动配置 -->
+		<property name="driverClass" value="${jdbc_driver_classs}"></property>
+		<!-- url配置 -->
+		<property name="jdbcUrl" value="${jdbc_url}"></property>
+		<!-- 配置用户名 -->
+		<property name="user" value="${jdbc_username}"></property>
+		<!-- 配置密码 -->
+		<property name="password" value="${jdbc_password}"></property>
+		<!-- 配当连接池连接耗尽时，c3p0一次同时获取的连接数，default=3 -->
+		<property name="acquireIncrement" value="${jdbc_acquireIncrement}"></property>
+		<!-- 初始化池的大小，default=3 -->
+		<property name="initialPoolSize" value="${jdbc_initialPoolSize}"></property>
+		<!-- 连接池中最小连接数,default=3 -->
+		<property name="minPoolSize" value="${jdbc_minPoolSize}"></property>
+		<!-- 连接池中最大连接数 -->
+		<property name="maxPoolSize" value="${jdbc_maxPoolSize}"></property>
+		<!-- 最大空闲时间，0为永不丢弃.default=0 -->
+		<property name="maxIdleTime" value="${jdbc_maxIdleTime}"></property>
+		<!-- 每60秒检查所有连接池中的空闲连接，default=0 -->
+		<property name="idleConnectionTestPeriod" value="${jdbc_idleConnectionTestPeriod}"></property>
+		<property name="maxStatements" value="${jdbc_maxStatements}"></property>
+		<!-- 定义从数据库获取连接失败后重新尝试的次数，default=100 -->
+		<property name="acquireRetryAttempts" value="${jdbc_acquireRetryAttempts}"></property>
+		<!-- c3p0是异步的，jdbc操作通常是不持有锁的helper线程执行的，允许多个线程能够改进性能 -->
+		<property name="numHelperThreads" value="10"></property>
+	</bean>
+	<!-- 配置SessionFactory（spring提供的api） -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${jdbc_hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">
+					${jdbc_hibernate.show_sql}
+				</prop>
+				<prop key="hibernate.format_sql">
+					${jdbc_hibernate.format_sql}
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">
+					${hibernate.hbm2ddl.auto}
+				</prop>
+			</props>
+		</property>
+
+		<!-- 自动扫描hbm方式配置的hibernate文件 -->
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:com/sharedcloud/pc/model/</value>
+			</list>
+		</property>
+	</bean>
+	<!--================================- 数据库相关配置：end -================================-->
+	
+	
+	
+	
+	
+	
+	<!--================================- aop事务：start -================================-->	
+	<!-- 声明事务管理器 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 事务增强（引用了上面的事务管理器） -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<!-- 配置详细的事务定义 -->
+		<tx:attributes>
+			<!-- 所有以find,get开头的方法时read—only的 -->
+			<tx:method name="query*" read-only="true"></tx:method>
+			<tx:method name="get*" read-only="true"></tx:method>
+			<!-- 其他方法默认事务配置 -->
+			<tx:method name="*"></tx:method>
+		</tx:attributes>
+	</tx:advice>
+	
+	
+	
+	<!-- 切面配置 -->
+	<aop:config>
+		<!-- 切入点配置 -->
+		<!-- ..代表任意路径，*代表任意字符 -->
+		<aop:pointcut id="txMethods"
+			expression="execution(* com..service.impl.*Service.*(..))" />
+			
+		<!-- 增强配置 -->	
+		<!-- 指定在txMethods切入点应用txAdvice的切面 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txMethods" />
+	</aop:config>
+
+	<!--================================- aop事务：end -================================-->	
+</beans>

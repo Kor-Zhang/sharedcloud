@@ -1,0 +1,291 @@
+body,html{
+	
+	background: rgb(239,244,248);
+}
+
+#userSelfInfo_content{
+	width:80%;
+	margin-left: 10%;
+}
+#userSelfInfo_content *{
+}
+/* 导航 */
+#userSelfInfo_nav{
+	
+	height:60px;
+	border-bottom: 1px solid rgb(221,221,221);
+}
+#userSelfInfo_nav>div{
+	height:60px;
+	float: left;
+	line-height: 60px;
+}
+
+/* logo设置 */
+#userSelfInfo_nav>#userSelfInfo_nav_logo{
+	/* width:10%; */
+	font-size: 21px;
+}
+#userSelfInfo_nav>#userSelfInfo_nav_logo>div{
+	float: left;
+}
+/* 标题 */
+#userSelfInfo_nav>#title{
+	width:70%;
+	color: rgb(40,140,255);
+}
+/* 分割线 */
+#userSelfInfo_nav>#fg{
+	width:1%;
+}
+
+/* 转向登录 */
+#userSelfInfo_nav>#toLogin{
+	float: right;
+	/* width:10% */;
+}
+#userSelfInfo_nav>#toLogin>a{
+	color:rgb(59,140,255);
+}
+
+/* 用户信息信息div */
+#userSelfInfo_div{
+	/* border:1px solid black; */
+	/* background:white; */
+	text-align:center;
+	margin-left:5%;
+	width:90%;
+	/* padding-top: 20px; */
+	padding-bottom: 20px;
+	/* margin-top: 20px; */
+}
+#userSelfInfo_div>div{
+	
+	float: left;
+	height:100%;
+}
+/* 信息左部 */
+#userSelfInfo_div_left{
+	border:1px solid rgb(221,221,221);
+	/* border-radius:5px; */
+	border-right: 0px;
+	width:calc(17% - 2px);
+}
+/* #userSelfInfo_quike_way{
+	background: white;
+} */
+/* 左部的信息table导航 */
+#userSelfInfo_table{
+	width:100%;
+}
+/* 设置导航标签边框 */
+#userSelfInfo_table td{
+	width:100%;
+	text-align: center;
+	height:40px;
+	border-top: 1px solid rgb(221,221,221);
+	
+}
+
+/* 用户信息操作选项 */
+.userSelfInfo_oper_td>a{
+	font-size: 13px;
+	font-weight: normal;
+	display: block;
+	width:100%;
+	height:40px;
+	line-height: 40px;
+	outline: none;
+}
+
+
+/* .userSelfInfo_oper_td a:hover{
+	background: rgb(54,104,254);
+	color: white;
+} */
+/* 头像图片显示 */
+#userSelfInfo_head_img{
+	width:150px;
+	height:150px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+/* 信息右部 */
+#userSelfInfo_div_right{
+	width:83%;
+	/* background: green; */
+	position: relative;
+	top:0px;
+	left:0px;
+	height:300px;
+}
+
+#userSelfInfo_div_right>div{
+	width:100%;
+	position: absolute;
+	top:0px;
+	left:0px;
+	/* height:400px; */
+	
+}
+/* 修改基本信息的视图 */
+#chg_basicInfo_view{
+	/* background: red; */
+}
+#chg_basicInfo_view *{
+	
+	font-size: 13px;
+}
+
+#basicInfo_title{
+	font-size:25px;
+	height:50px;
+	line-height:50px;
+	border: 1px solid rgb(221,221,221);
+	/* border-radius:5px; */
+	font-weight: normal;
+	
+	color:rgb(40,140,255);
+	
+}
+#basicInfo_form{
+	width:100%;
+	height:100%;
+}
+#basicInfo_table{
+	/* background:red; */
+	width:100%;
+	height:100%;
+	
+	border: 1px solid rgb(221,221,221);
+	border-top: 0px;
+}
+/* 设置不可修改信息样式*/
+#basicInfo_table .readonlyBasicInfoInput{
+	height:20px;
+	width:200px;
+	border:1px solid rgb(221,221,221);
+}
+#basicInfo_table .readonlyBasicInfoInput[name='age']{
+	width:50px;
+}
+#basicInfo_table *{
+	font-weight: normal;
+}
+#basicInfo_table td[align='left']{
+	width: 65%;
+}
+#basicInfo_table td[align='right']{
+	width: 35%;
+}
+#basicInfo_table td{
+	line-height: 50px;
+}
+/* 签名框 */
+#introId{
+	width:350px;
+	height:150px;
+	border:1px solid rgb(201,201,201);
+	resize:none;
+}
+/* 信息保存按钮 */
+#basicInfo_save_btn{
+	background:white;
+	border-radius:4px;
+	width:110px;
+	height:35px;
+	border:1px solid rgb(59,140,255);
+	color: rgb(59,140,255);
+	text-align: center;
+	cursor: pointer;
+	
+}
+/* 悬浮在信息保存按钮上 */
+#basicInfo_save_btn:hover{
+	background-color:rgb(59,140,255);
+	color:white;
+}
+/* 修改密码的视图 */
+#chg_password_view{
+	display:none;
+}
+/* 标题 */
+#password_title{
+	color:rgb(40,140,255);
+	font-size:25px;
+	height:50px;
+	line-height:50px;
+	border: 1px solid rgb(221,221,221);
+	font-weight: normal;
+}
+#password_content{
+	width:calc(100% - 1px);
+	height:100%;
+	border: 1px solid rgb(221,221,221);
+	border-top: 0px;
+	padding: 20px 0px;
+}
+#password_content *{
+	font-weight: normal;;
+	font-size: 13px;
+}
+#password_content>div{
+	height:120px;
+}
+/* 输入邮箱的 */
+#password_emailInput{
+	width:200px;
+	height:30px;
+	line-height:30px;
+	color: gray;
+	border: 1px solid rgb(49,140,255);
+	font-size: 12px;
+	vertical-align: middle;
+}
+/* 发送邮件按钮 */
+#password_sendBtn{
+	vertical-align: middle;
+	width:80px;
+	height:32px;
+	line-height:30px;
+	border: 1px solid rgb(49,140,255);
+	font-size: 15px;
+	border-left: 0px;
+	background: rgb(49,140,255);
+	color: white;
+	cursor: pointer;
+	
+}
+#password_sendBtn:hover{
+	background: white;
+	color: gray;
+}
+/* 修改头像的视图 */
+#chg_head_view{
+	display:none;
+}
+#head_content{
+	width:calc(100% - 1px);
+	height:100%;
+	border: 1px solid rgb(221,221,221);
+	border-top: 0px;
+	padding: 20px 0px;
+}
+/* 头像图片 */
+#uploadHeadImg{
+	width:300px;
+	height:200px;
+}
+/* 标题 */
+#head_title{
+	color:rgb(40,140,255);
+	font-size:25px;
+	height:50px;
+	line-height:50px;
+	border: 1px solid rgb(221,221,221);
+	/* border-radius:5px; */
+	font-weight: normal;
+}
+

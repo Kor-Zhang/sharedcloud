@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+">
+
+	<!--================================- 全局的action：start -================================-->
+	<bean id="verifyAction" class="com.sharedcloud.pc.action.VerifyAction">
+	</bean>
+	<bean id="baseAction" class="com.sharedcloud.pc.action.BaseAction">
+	</bean>	
+	<!--================================- 全局的action：end -================================-->	
+	
+	
+	
+	
+	
+	<!--================================- 前台action：start -================================-->
+	<bean id="fBsesAction" class="com.sharedcloud.pc.front.action.FBaseAction">
+	</bean>	
+	<!-- fUsersAction -->
+	<bean id="fUsersAction" class="com.sharedcloud.pc.front.action.FUsersAction">
+		<property name="fUsersService" ref="fUsersService"></property>
+	</bean>	
+	<!-- fUploadHistoryAction -->
+	<bean id="fUploadHistoryAction" class="com.sharedcloud.pc.front.action.FUploadHistoryAction">
+		<property name="fUploadHistoryService" ref="fUploadHistoryService"></property>
+	</bean>	
+	<!-- fSharedfilesAction -->
+	<bean id="fSharedfilesAction" class="com.sharedcloud.pc.front.action.FSharedfilesAction">
+		<property name="fSharedfilesService" ref="fSharedfilesService"></property>
+	</bean>	
+	<!--================================- 前台action：end -================================-->
+	
+	
+	
+	
+	
+	<!--================================- 后台action：start -================================-->
+	<!--================================- 后台action：end -================================-->
+</beans>

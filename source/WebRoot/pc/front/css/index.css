@@ -1,0 +1,507 @@
+/* 上传组件 */
+#uploadCom{
+	position: fixed;
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.9);
+	/* 默认不现实 */
+	/* display: none; */
+	z-index:-999;
+}
+#uploader{
+	width:50%;
+	margin-top: 10%;
+	margin-left: 25%;
+}
+#uploadCom_closeBtn{
+	cursor:pointer;
+	float: right;
+	font-size: 50px;
+	width:50px;
+	height:50px;
+	margin-right: 20px;
+}
+/* 导航栏 */
+#index_nav{
+	width:100%;
+	height:60px;
+	
+}
+/* 主页内容 */
+
+/* 运算符间必须空格 */
+#inedx_content{
+	width:100%;
+	background:white;
+	height:calc(100% - 60px);
+}
+#inedx_content>div{
+	float: left;
+	
+}
+/* 主页内容左部 */
+#inedx_content_left{
+	width:13%;
+	background: rgb(239,244,248);
+	height:100%;
+}
+/* 设置下一层颜色 */
+#index_content_left>*{
+	background: rgb(239,244,248);
+}
+
+
+/* 标签列表 */
+/* 除去下面的容量显示高度 */
+#inedx_content_left>#labels_list{
+	list-style: none;
+	
+	height:calc(100% - 100px);
+}
+
+/* 设置每个标签选项 */
+#inedx_content_left>#labels_list>.labs{
+	text-align: center;
+	line-height:45px;
+	height:45px;
+	cursor: pointer;
+	/* 防止被选中 */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+#inedx_content_left>#labels_list>.labs>a{
+	wdith:100%;
+	height:100%;
+	display:block;
+	font-weight: normal;
+	font-size: 14px;
+	height:45px;
+	line-height:45px;
+	color: gray;
+}
+/* 标签悬浮时间 */
+#inedx_content_left>#labels_list>.labs>a:hover{
+	background: rgb(227,232,236);
+}
+
+/* 全部文件的细分 */
+.totalFileDetail>a{
+	/* text-align: center; */
+}
+
+/* 设置“全部文件”的图标 */
+#total_file_ico{
+	background:transparent;
+	font-size:22px;
+	margin-right: 8px;
+	color: gray;
+	height:45px;
+	line-height:45px;
+}
+/* “我的分享”图标 */
+#total_file_myshare{
+	background:transparent;
+	font-size:22px;
+	margin-right: 8px;
+	color: gray;
+	height:45px;
+	line-height:45px;
+}
+
+/*  默认第一个label为选择状态 
+
+#inedx_content_left>#labels_list>.labs:first-child>a{
+	color: rgb(59,140,255);
+	background: rgb(227,232,236);
+} */
+
+
+/* 左部下部，显示容量 */
+#index_content_left_totalSize{
+	height:100px;
+	padding-left: 30px;
+	padding-right:30px;
+	width:calc(100% - 60px);
+	text-align: left;
+}
+
+/* 容量进度条 */
+#totalSizeProgress{
+	height:15px;
+}
+/* 设置进度条只需改变#userdProgress的width的百分比 */
+/* 因为进度条内部无内容，那么需要用padding撑开div （决定进度条的高度）*/
+#usedProgress{
+	border-radius:5px;
+	width:78%;
+	background: rgb(146,239,85);;
+	padding-top:8px;
+}
+
+#totalProgress{
+	border-radius:5px;
+	width:100%;
+	background: rgb(215,220,223);
+}
+/* 容量文字 */
+#totalSizeNumber,#totalSizeNumber *{
+	font-size: 12px;
+	font-weight:normal;
+}
+
+/* 主页内容右部 */
+#index_content_right{
+	width:87%;
+	height:100%;
+	border-radius:15px;
+	background:white; 
+	position: relative;
+	top: 0px;
+	left:0px;
+	
+}
+#index_content_right>div{
+	float: left;
+	position: absolute;
+	top: 0px;
+	left:0px;
+	/* 默认所有的视图都不显示 */
+	display: none;
+	width:100%;
+	height:100%;
+}
+/* 文件列表视图 */
+#filesListView{
+	
+	
+}
+/* 我的分享文件列表视图 */
+#mySharedFilesListView{
+	
+}
+/* 文件列表div */
+#filesListDiv{
+	
+	width:100%;
+	height:100%;
+}
+/* 右部导航 */
+#index_content_right_nav{
+	width:100%;
+	height:70px;
+	background: white;
+	line-height: 70px;
+}
+	
+#index_content_right_nav>div{
+	height:100%;
+	line-height: 70px;
+	float: left;
+}
+/* 导航栏左部 */
+#index_content_right_nav_left{
+	background:white;
+	width:80%;
+}
+/* 设置按钮间隔 */
+#index_content_right_nav_left>button{
+	margin-left: 5px;
+	padding:0px 10px;
+	cursor: pointer;
+	
+}
+/* 上传按钮，新建按钮 */
+#index_content_right_nav_left>.bg-blue{
+	background:rgb(59,140,255);
+	border-radius:4px;
+	/* width:80px; */
+	
+	height:35px;
+	line-height:35px;
+	border:1px solid rgb(59,140,255);
+	color: white;
+	
+	/* 渐变背景,字体颜色 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+}
+#index_content_right_nav_left>.bg-blue>i{
+	color: white;
+}
+/* 隐藏取消按钮 */
+
+#index_content_right_nav_left>#cancelBtn{
+	display: none;
+}
+/* 上传，新建按钮悬浮事件 */
+#index_content_right_nav_left>.bg-blue:hover{
+	background-color:white;
+	color:rgb(59,140,255);
+	
+	
+}
+#index_content_right_nav_left>.bg-blue:hover i{
+	
+	color:rgb(59,140,255);
+}
+/* 操作文件夹按钮等*/
+#index_content_right_nav_left>.bg-white{
+	background:white;
+	border-radius:4px;
+	/* width:65px; */
+	height:35px;
+	line-height:35px;
+	border:1px solid rgb(192,217,244);
+	color: rgb(59,140,255);
+	text-align: center;
+	display: none;
+	
+	
+	/* 渐变背景 */
+	transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;	/* Firefox 4 */
+	-webkit-transition: background-color 0.5s;	/* Safari 和 Chrome */
+	-o-transition: background-color 0.5s;	/* Opera */
+	
+}
+#index_content_right_nav_left>.bg-white>i{
+	
+	color: rgb(59,140,255);
+}
+
+#index_content_right_nav_left>.bg-white:hover{
+	background-color:rgb(59,140,255);
+	color:white;
+	
+	
+}
+#index_content_right_nav_left>.bg-white:hover i{
+	color:white;
+}
+
+/* 导航栏右部 */
+#index_content_right_nav_right{
+	width:20%;
+	background:  white;
+}
+/* 搜索您的的文件 */
+#searchYourFileInput{
+	border: 0px;
+	border-radius:20px;
+	width:80%;
+	height:30px;
+	display: inline-block;
+	background: rgb(241,242,243);
+	padding-left: 10px;
+	font-weight: normal;
+	outline:none;
+}
+
+/* 返回导航栏 */
+#backNavDiv{
+	height:30px;
+	width:100%;
+	line-height: 30px;
+}
+
+#backNavDiv>div{
+	float: left;
+}
+
+#backNavDiv *{
+	font-size: 14px;
+	color: rgb(40,140,255);
+	font-weight: normal;;
+}
+#backNavDiv input{
+	border:0px;
+	cursor: pointer;
+}
+#backNavDiv #file_positionDiv input{
+	color:black;
+	font-size: 13px;
+}
+/* 操作等待图片div */
+#operFileLoading{
+	width:calc(50% - 100px);
+	line-height: 30px;
+}
+#operFileLoading>img{
+	width:30px;
+}
+#operFileLoading>*{
+	float: left;
+	color:rgb(40,140,255);
+	font-weight: bold;
+}
+/* 返回按钮的div */
+#backNavDiv>#backBtnDiv{
+	/* 默认不显示 */
+	display:none;
+	width:100px;
+}
+/* 位置导航的div */
+#backNavDiv>#file_positionDiv{
+	/* 默认不显示 */
+	display:none;
+	width:50%;
+}
+/* 下部文件列表 */
+#index_content_right_filelist{
+	background:white;
+	padding: 0px 20px;
+	width:calc(100% - 40px);
+}
+/* 下部文件列表 */
+#index_content_right_filelist *{
+/* 防止被选中 */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	
+}
+
+/* 设置下拉显示列表 */
+#index_content_right_filelist_table_div{
+	height:600px;
+	overflow-y: scroll;
+	width:100%;
+}
+/* 下部table */
+#index_content_right_filelist_table{
+	width:100%;
+	background: white;
+	border:0; 
+	cellspacing:0; 
+	cellpadding:0;
+}
+/* 设置table的子元素 */
+#index_content_right_filelist_table *{
+	text-align:left;
+	background: white;
+	font-weight: normal;
+	font-size: 14px;
+	background:transparent;
+
+}
+/* 设置td */
+/* table的列需要line-height设置高度 */
+#index_content_right_filelist_table td{
+	height:40px;
+	line-height:40px;
+	width:25%;
+	border-bottom: 1px solid rgb(242,246,253);
+	cursor: pointer;
+}
+#index_content_right_filelist_table td:first-child{
+	width:50%
+}
+/* 设置tr */
+#index_content_right_filelist_table tr{
+	/* 渐变背景,字体颜色 */
+	transition: background-color 1.0s;
+	-moz-transition: background-color 1.0s;	/* Firefox 4 */
+	-webkit-transition: background-color 1.0s;	/* Safari 和 Chrome */
+	-o-transition: background-color 1.0s;	/* Opera */
+}
+#index_content_right_filelist_table tr:hover{
+	background:rgb(241,242,243);
+}
+/* 文件图标和名字的td */
+.directory_Name_Icon_td{
+	
+}
+.directory_Name_Icon_td>div{
+	float:left;
+	
+}
+
+/* 文件夹图标 div*/
+.directoryIcon_div{
+	width:30px;
+}
+/* 文件夹图标 */
+.directoryIcon{
+	width:22px;
+}
+
+/* 文件夹名字 div*/
+.directoryName_div{
+	height:40px;
+	line-height:40px;
+	width:calc(100% - 130px);
+	margin-left:20px;
+}
+.directoryName_div>label{
+	border:1px solid rgb(40,140,255);
+	width:100%;
+	height:20px;
+	-moz-user-select:auto;
+	-webkit-user-select:auto;
+	-ms-user-select:auto;
+	-khtml-user-select:auto;
+	user-select:auto;
+}
+.directoryName_div>input{
+	border:1px solid rgb(40,140,255);
+	width:100%;
+	height:20px;
+	-moz-user-select:auto;
+	-webkit-user-select:auto;
+	-ms-user-select:auto;
+	-khtml-user-select:auto;
+	user-select:auto;
+}
+.directoryName_div>label{
+	cursor: pointer;
+}
+.directoryName_div>a:hover{
+	color:rgb(59,140,255);;
+}
+/* 文件夹操作div */
+.directoryOperation_div{
+	width:100px;
+	float: right;
+}
+/*****************************************************响应式*****************************************************/
+
+
+
+/* x>=1200 and x<=1500的设备 */
+@media screen and ( min-width : 1200px) and (max-width : 1500px){
+	
+	
+	/* 设置每个标签选项 */
+	#inedx_content_left>#labels_list>.labs{
+		line-height:40px;
+		height:40px;
+		
+	}
+	
+	#inedx_content_left>#labels_list>.labs>a{
+		line-height:40px;
+		height:40px;
+	}
+	/* 设置“全部文件”的图标 */
+	#total_file_ico{
+		
+		line-height:40px;
+		height:40px;
+	}
+	/* “我的分享”图标 */
+	#total_file_myshare{
+		
+		line-height:40px;
+		height:40px;
+	}
+	
+}
+
