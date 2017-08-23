@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat Oracle Data Transfer
 Oracle Client Version : 11.2.0.3.0
 
@@ -11,7 +11,7 @@ Target Server Type    : ORACLE
 Target Server Version : 110200
 File Encoding         : 65001
 
-Date: 2017-06-23 23:45:41
+Date: 2017-06-23 23:45:41 
 */
 
 
